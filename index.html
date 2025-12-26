@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bibliotheca Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="style.css">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="app">
+
+    
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-book"></i>
+            <span>Bibliotheca</span>
+        </div>
+
+        <nav>
+            <ul>
+                <li class="active" data-section="dashboard">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </li>
+                <li data-section="books">
+                    <i class="fa-solid fa-book-open"></i>
+                    Livres
+                </li>
+                <li data-section="authors">
+                    <i class="fa-solid fa-user-pen"></i>
+                    Auteurs
+                </li>
+                <li data-section="stats">
+                    <i class="fa-solid fa-database"></i>
+                    API & Stats
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    
+    <main class="main">
+
+        
+        <header class="navbar">
+            <h1>Smart Backoffice Dashboard</h1>
+            <div class="user">
+                <i class="fa-solid fa-user-circle"></i>
+                <span>Admin</span>
+            </div>
+        </header>
+
+
+        <section id="dashboard" class="section active">
+            <h2>Dashboard</h2>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <h3>Total Livres</h3>
+                    <p>0</p>
+                </div>
+                <div class="kpi-card">
+                    <h3>Total Auteurs</h3>
+                    <p>0</p>
+                </div>
+                <div class="kpi-card">
+                    <h3>Livres disponibles</h3>
+                    <p>0</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Statistiques des livres</h3>
+                <canvas id="booksChart"></canvas>
+            </div>
+        </section>
+
+        
+        <section id="books" class="section">
+            <h2>Gestion des Livres</h2>
+
+            <div class="card">
+                <h3>Ajouter un livre</h3>
+
+                <form class="form" id="bookForm">
+                    <div class="form-group">
+                        <label>Titre</label>
+                        <input type="text" id="bookTitle" placeholder="Titre du livre">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Auteur</label>
+                        <input type="text" id="bookAuthor" placeholder="Nom de l’auteur">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Année</label>
+                        <input type="number"id="bookYear" placeholder="2024">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Catégorie</label>
+                        <input type="text" id="bookCategory" placeholder="Roman, Science...">
+                    </div>
+
+                    <button class="btn-primary" >Ajouter</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Liste des livres</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Auteur</th>
+                            <th>Année</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="booksTableBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        
+        <section id="authors" class="section">
+            <h2>Gestion des Auteurs</h2>
+
+            <div class="card">
+                <h3>Ajouter un auteur</h3>
+
+                <form class="form" id="authorForm">
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" id="authorName" placeholder="Nom de l’auteur">
+                    </div>
+
+                    <button class="btn-primary" >Ajouter</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Liste des auteurs</h3>
+                <ul class="list" id="authorsList">
+                    
+                </ul>
+            </div>
+        </section>
+
+        
+        <section id="stats" class="section">
+            <h2>API & Données externes</h2>
+
+            <div class="card">
+                <h3>Données OpenLibrary</h3>
+                <p>Les données récupérées depuis l’API seront affichées ici.</p>
+            </div>
+        </section>
+
+    </main>
+</div>
+<script src="app.js"></script>
+
+
+
+</body>
+</html>
