@@ -16,8 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const target = item.dataset.section;
       document.getElementById(target).classList.add("active");
+
+      if (target === "dashboard") {
+        loadDashboard();
+      }
     });
   });
-
+loadDashboard();
 });
 

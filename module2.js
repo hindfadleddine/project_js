@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     authors.push(author);
   saveAuthors(authors);
 displayAuthors();
-
+loadDashboard();
 
     form.reset();
   });
@@ -58,8 +58,10 @@ displayAuthors();
   
   window.deleteAuthor = function (id) {
     authors = authors.filter(author => author.id !== id);
+    
     saveAuthors(authors); 
     displayAuthors();
+    loadDashboard();
      
   };
   displayAuthors();

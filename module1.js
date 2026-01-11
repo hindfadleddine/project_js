@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     books.push(book);
  saveBooks(books);
 displayBooks();
+loadDashboard();
 
     form.reset();
   });
@@ -60,6 +61,7 @@ displayBooks();
     books = books.filter(b => b.id !== id);
  saveBooks(books);
 displayBooks();
+loadDashboard();
 
 
   };
