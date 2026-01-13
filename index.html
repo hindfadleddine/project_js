@@ -62,20 +62,53 @@
         <section id="dashboard" class="section active">
             <h2>Dashboard</h2>
 
-            <div class="kpi-grid">
-                <div class="kpi-card">
-                    <h3>Total Livres</h3>
-                    <p>0</p>
-                </div>
-                <div class="kpi-card">
-                    <h3>Total Auteurs</h3>
-                    <p>0</p>
-                </div>
-                <div class="kpi-card">
-                    <h3>Livres disponibles</h3>
-                    <p>0</p>
-                </div>
-            </div>
+            <div class="stats-grid">
+  <div class="stat-card blue">
+   <span class="icon blue">
+  <i class="fa-solid fa-book"></i>
+</span>
+
+    <div>
+      <p>Total Livres</p>
+      <h2 id="statBooks">0</h2>
+    </div>
+  </div>
+
+  <div class="stat-card green">
+   <span class="icon green">
+    <i class="fa-solid fa-user-pen"></i>
+  </span>
+    <div>
+      <p>Total Auteurs</p>
+      <h2 id="statAuthors">0</h2>
+    </div>
+  </div>
+
+  <div class="stat-card orange">
+    <span class="icon orange">
+    <i class="fa-solid fa-book-open"></i>
+  </span>
+    <div>
+      <p>Livres disponibles</p>
+      <h2 id="statAvailable">0</h2>
+    </div>
+  </div>
+
+  <div class="stat-card purple">
+    <span class="icon purple">
+    <i class="fa-solid fa-tags"></i>
+  </span>
+    <div>
+      <p>Catégories</p>
+      <h2 id="statCategories">0</h2>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <h3>📊 Livres par catégorie</h3>
+<canvas id="booksChart" height="120"></canvas>
+
+</div>
 
            
         </section>
@@ -119,6 +152,7 @@
                         <tr>
                             <th>Titre</th>
                             <th>Auteur</th>
+                             <th>Catégorie</th>
                             <th>Année</th>
                             <th>Actions</th>
                         </tr>
@@ -160,9 +194,26 @@
             <h2>API & Données externes</h2>
 
             <div class="card">
-                <h3>Données OpenLibrary</h3>
-                <p>Les données récupérées depuis l’API seront affichées ici.</p>
-            </div>
+  <h3>🔍 Recherche OpenLibrary</h3>
+
+  <div class="api-search">
+    <select id="searchType">
+      <option value="title">Livre</option>
+      <option value="author">Auteur</option>
+    </select>
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Entrez le nom du livre ou de l’auteur"
+    />
+
+    <button id="searchBtn">Rechercher</button>
+  </div>
+
+  <div id="apiResults" class="api-results"></div>
+</div>
+
         </section>
 
     </main>
@@ -174,7 +225,7 @@
 
 <script src="module1.js"></script>
 <script src="module2.js"></script>
-
+<script src="api.js"></script>
 
 
 </body>

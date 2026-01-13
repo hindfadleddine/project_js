@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
       title,
       author,
       year,
-      category
+      category,
+        available: true
     };
 
    
@@ -46,6 +47,7 @@ loadDashboard();
       tr.innerHTML = `
         <td>${book.title}</td>
         <td>${book.author}</td>
+          <td>${book.category || "-"}</td>
         <td>${book.year}</td>
         <td>
           <button onclick="deleteBook(${book.id})">🗑</button>
